@@ -28,7 +28,8 @@
   "config": {
     "allow-plugins": {
       "craftcms/plugin-installer": true,
-      "yiisoft/yii2-composer": true
+      "yiisoft/yii2-composer": true,
+      "treeware/plant": false
     },
     "sort-packages": true,
     "optimize-autoloader": true,
@@ -58,7 +59,7 @@
       "@php craft install/check && php craft project-config/apply --interactive=0 || exit 0"
     ],
     "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+      "@php -r \"file_exists('.env') || copy('env.example', '.env');\""
     ],
     "post-create-project-cmd": [
       "@php craft setup/welcome"

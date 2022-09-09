@@ -14,7 +14,8 @@
   "config": {
     "allow-plugins": {
       "craftcms/plugin-installer": true,
-      "yiisoft/yii2-composer": true
+      "yiisoft/yii2-composer": true,
+      "treeware/plant": false
     },
     "sort-packages": true,
     "optimize-autoloader": true,
@@ -26,12 +27,26 @@
     "post-ddev-install": [
       "@php -r \"file_exists('.env') || copy('env.example', '.env');\"",
       "@php -r \"unlink('composer.json');\"",
-      "@php -r \"rename('composer.json.default', 'composer.json');\"",
+      "@php -r \"copy('composer.json.default', 'composer.json');\"",
       "@composer dump-autoload -o",
       "@php craft setup/app-id",
       "@php craft setup/security-key",
       "@php craft setup/db --interactive=0 --driver=mysql --database=db --user=db --password=db --server=ddev-$DDEV_PROJECT-db --port=3306",
-      "chmod +x craft-install.exp && ./craft-install.exp"
+      "chmod +x craft-install.exp && ./craft-install.exp",
+      "@composer update --no-scripts --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs",
+      "@php craft plugin/install mailgun",
+      "@php craft plugin/install redactor",
+      "@php craft plugin/install blur-hash",
+      "@php craft plugin/install empty-coalesce",
+      "@php craft plugin/install retour",
+      "@php craft plugin/install seomatic",
+      "@php craft plugin/install typogrify",
+      "@php craft plugin/install vite",
+      "@php craft plugin/install relax",
+      "@php craft plugin/install typedlinkfield",
+      "@php craft plugin/install dospaces",
+      "@php craft plugin/install navigation",
+      "@php craft plugin/install super-table"
     ]
   }
 }

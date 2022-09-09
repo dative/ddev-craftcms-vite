@@ -21,5 +21,7 @@ ddev start
 # Install Craft
 echo "Installing Craft"
 ddev composer post-ddev-install
+ddev launch /admin
+ddev describe
 
 # Clean up
