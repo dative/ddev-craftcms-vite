@@ -1,6 +1,20 @@
 {
   "require": {
     "craftcms/cms": "^4.2.0.2",
+    "craftcms/mailgun": "^3.0.0",
+    "craftcms/redactor": "^3.0.2",
+    "dodecastudio/craft-blurhash": "2.0.4",
+    "nystudio107/craft-closure": "^1.0",
+    "nystudio107/craft-emptycoalesce": "^4.0.0",
+    "nystudio107/craft-retour": "^4.1.2",
+    "nystudio107/craft-seomatic": "^4.0.7",
+    "nystudio107/craft-typogrify": "^4.0.0",
+    "nystudio107/craft-vite": "^4.0.3",
+    "ostark/craft-relax": "^2.0.0",
+    "sebastianlenz/linkfield": "^2.1.4",
+    "vaersaagod/dospaces": "^2.0",
+    "verbb/navigation": "2.0.5",
+    "verbb/super-table": "3.0.0",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
