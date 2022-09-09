@@ -1,3 +1,9 @@
+# Repo Template ignore
+/.ddev/config.yaml
+/cms/config/project
+/cms/config/license.key
+/cms/composer.json
+
 # CRAFT ENVIRONMENT
 .env*
 
