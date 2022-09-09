@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Run craft commands inside the web container ./cms
+## Usage: craft [args] [flags]
+## Example: "ddev craft help"
+## ExecRaw: true
+
+php ./cms/craft "$@"
