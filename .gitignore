@@ -3,6 +3,7 @@
 /cms/config/project
 /cms/config/license.key
 /cms/composer.json
+/cms/composer.lock
 
 # CRAFT ENVIRONMENT
 .env*
