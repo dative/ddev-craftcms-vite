@@ -13,7 +13,7 @@ database:
   version: '8.0'
 nfs_mount_enabled: false
 mutagen_enabled: false
-use_dns_when_possible: true
+use_dns_when_possible: false
 composer_version: '2'
 composer_root: ./cms
 web_environment: []
