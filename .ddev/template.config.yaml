@@ -13,7 +13,7 @@ database:
   version: '8.0'
 nfs_mount_enabled: false
 mutagen_enabled: false
-use_dns_when_possible: false
+use_dns_when_possible: true
 composer_version: '2'
 composer_root: ./cms
 web_environment: []
@@ -28,7 +28,7 @@ web_environment:
 timezone: America/New_York
 hooks:
   post-start:
-    - exec-host: 'ddev composer install --no-scripts --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs'
+    - exec-host: 'ddev composer install --quiet --no-scripts --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs'
     # - exec-host: 'ddev auth ssh'
     # - exec: "yarn"
     # - exec-host: 'ddev launch'
