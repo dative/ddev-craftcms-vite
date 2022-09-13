@@ -1,4 +1,4 @@
-dateModified: 1663081416
+dateModified: 1663085554
 email:
   fromEmail: info@hellodative.com
   fromName: craft-vite
@@ -28,6 +28,7 @@ plugins:
   navigation:
     edition: standard
     enabled: true
+    licenseKey: US69ZPC8UF4QZ3NQFN2ZRW0W
     schemaVersion: 2.0.3
   redactor:
     edition: standard
@@ -40,11 +41,17 @@ plugins:
   retour:
     edition: standard
     enabled: true
+    licenseKey: 74SS9MKYL98QRKH0E0E9GGC8
     schemaVersion: 3.0.10
   seomatic:
     edition: standard
     enabled: true
+    licenseKey: XRX2Z280HS6QK4BXNVKCYHWO
     schemaVersion: 3.0.11
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
   typedlinkfield:
     edition: standard
     enabled: true

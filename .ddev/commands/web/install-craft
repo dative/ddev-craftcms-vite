@@ -1,0 +1,47 @@
+#!/bin/bash
+
+## Description: Install and configure CraftCMS ./cms
+## Usage: install-craft
+## Example: "ddev install-craft"
+## ExecRaw: true
+
+
+############ Setup Craft ############
+cd ./cms
+
+[ ! -f ".env" ] && cp env.example .env
+
+if php craft install/check | grep -q 'Craft is not installed yet.'; then
+  echo "Installing and Configuring CraftCMS"
+  php craft setup/app-id
+  php craft setup/security-key
+
+  # Setup DB with DDEV credentials
+  php craft setup/db --interactive=0 --driver=mysql --database=db --user=db --password=db --server=ddev-$DDEV_PROJECT-db --port=3306
+
+  # Run Craft Install
+  chmod +x craft-install.exp && ./craft-install.exp
+
+  # Install Plugins
+  php craft plugin/install mailgun
+  php craft plugin/install redactor
+  php craft plugin/install blur-hash
+  php craft plugin/install empty-coalesce
+  php craft plugin/install retour
+  php craft plugin/install seomatic
+  php craft plugin/install typogrify
+  php craft plugin/install vite
+  php craft plugin/install relax
+  php craft plugin/install typedlinkfield
+  php craft plugin/install dospaces
+  php craft plugin/install navigation
+  php craft plugin/install super-table
+
+  ############ Clean up ############
+  echo "Cleaning up install and setup scripts"
+  # remove ./cms/craft-install.exp
+  # [ -f "./setup.sh" ] && rm ./setup.sh
+  # [ -f "./craft-install.exp" ] && rm ./craft-install.exp
+fi
+
+exit 0
