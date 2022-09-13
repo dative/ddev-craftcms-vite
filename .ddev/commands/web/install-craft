@@ -36,6 +36,7 @@ if php craft install/check | grep -q 'Craft is not installed yet.'; then
   php craft plugin/install dospaces
   php craft plugin/install navigation
   php craft plugin/install super-table
+  php craft plugin/install retcon
 
   ############ Clean up ############
   echo "Cleaning up install and setup scripts"
