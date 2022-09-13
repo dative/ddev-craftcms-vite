@@ -1,0 +1,18 @@
+{#
+
+USAGE:
+
+{% include '_partials/_useSprite.twig' with {
+  id: 'STRING',
+  class: 'STRING',
+} %}
+
+#}
+{# prettier-ignore-start #}
+{% if id is defined and id %}
+  {% set id = (id|first) == '#' ? id[1:] : id %}
+  {% tag 'svg' with { class: class|default(false) } %}
+    {{ tag('use', { href: '#' ~ id }) }}
+  {% endtag %}
+{% endif %}
+{# prettier-ignore-end #}
