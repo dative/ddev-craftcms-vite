@@ -1,4 +1,4 @@
-name: PROJECT_NAME
+name: craft-vite
 type: php
 docroot: cms/web
 php_version: '8.1'
@@ -28,9 +28,9 @@ web_environment:
 timezone: America/New_York
 hooks:
   post-start:
-    - exec-host: 'ddev composer install --quiet --no-scripts --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs'
+    - exec-host: 'ddev composer install --no-scripts --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs'
+    # - exec: "yarn install"
     # - exec-host: 'ddev auth ssh'
-    # - exec: "yarn"
     # - exec-host: 'ddev launch'
 webimage_extra_packages:
   [

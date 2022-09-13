@@ -4,22 +4,23 @@ This repository is a template for [DDEV](https://ddev.readthedocs.io/en/stable/)
 
 You can create a new repo from this one by clicking the template button in the top right corner of the page.
 
-![template button](bin/template-preview.png)
+![template button](extras/template-preview.png)
 
-Everything runs inside DDEV. This is the current setup:
+## Components of the repository
 
-- PHP 8.1
-- MySQL 8.0
-- Node 16
-- Vite 3.1.0
-- CraftCMS 4.2
+- The base setup to run CraftCMS + Vite with DDEV
+  - PHP 8.1
+  - MySQL 8.0
+  - Node 16
+  - Vite 3.1.0
+  - CraftCMS 4.2
+- Github actions setup for building an deploying the site in Forge.
 
 ## Getting started
 
-```bash
-chmod +x ./bin/ddev-setup.sh && ./bin/ddev-setup.sh
-```
+After cloning your new repo:
 
-# Todo
-
-- [ ] Add project name validation on `ddev-setup.sh`
+1. Create the new template repository by using the template button.
+2. Clone the new repository to your local machine.
+3. Replace `<craft-vite>` in `.ddev/confi.yaml` with your local project name.
+4. Start DDEV with `ddev start`.

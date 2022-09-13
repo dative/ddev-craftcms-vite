@@ -1,11 +1,3 @@
-# Repo Template ignore
-/.ddev/config.yaml
-/cms/config/project
-/cms/config/license.key
-/cms/composer.json
-/cms/composer.lock
-/tests/test-craft-site
-
 # CRAFT ENVIRONMENT
 .env*
 

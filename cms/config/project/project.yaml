@@ -1,0 +1,71 @@
+dateModified: 1663081416
+email:
+  fromEmail: info@hellodative.com
+  fromName: craft-vite
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    8cad3e8a-2b40-415c-9a8f-f7d3b661fd0f: craft-vite # craft-vite
+    80fc3d6c-ee77-4c28-83fd-3cd64033ce30: $PRIMARY_SITE_NAME # $PRIMARY_SITE_NAME
+    01217ccf-7b0e-4d34-b3a7-a6116bdf397d: Common # Common
+plugins:
+  blur-hash:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  dospaces:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  empty-coalesce:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  mailgun:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.3
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  relax:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  retour:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.10
+  seomatic:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.11
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  typogrify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: craft-vite
+  schemaVersion: 4.0.0.9
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
