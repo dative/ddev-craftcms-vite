@@ -29,7 +29,7 @@ timezone: America/New_York
 hooks:
   post-start:
     - exec-host: 'ddev composer install --no-scripts --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs'
-    # - exec: "yarn install"
+    - exec: "yarn install"
     # - exec-host: 'ddev auth ssh'
     # - exec-host: 'ddev launch'
 webimage_extra_packages:
