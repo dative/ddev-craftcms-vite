@@ -7,6 +7,7 @@
     "mmikkel/retcon": "^2.5",
     "nystudio107/craft-closure": "^1.0",
     "nystudio107/craft-emptycoalesce": "^4.0.0",
+    "nystudio107/craft-minify": "4.0.0-beta.2",
     "nystudio107/craft-retour": "^4.1.2",
     "nystudio107/craft-seomatic": "^4.0.7",
     "nystudio107/craft-typogrify": "^4.0.0",

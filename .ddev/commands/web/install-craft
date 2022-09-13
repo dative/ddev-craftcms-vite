@@ -40,6 +40,7 @@ else
   php craft plugin/install navigation
   php craft plugin/install super-table
   php craft plugin/install retcon
+  php craft plugin/install minify
 
   ############ Clean up ############
   echo "Cleaning up install and setup scripts"

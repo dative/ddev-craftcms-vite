@@ -21,7 +21,7 @@ let plugins = [
   }),
 
   ViteFaviconsPlugin({
-    logo: nPath('./static/favicon.svg'),
+    logo: nPath('./src/static/favicon.svg'),
     inject: false,
     outputPath: 'favicons',
     favicons: {
