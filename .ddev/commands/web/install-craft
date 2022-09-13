@@ -10,8 +10,11 @@
 cd ./cms
 
 [ ! -f ".env" ] && cp env.example .env
+[ ! -d "storage" ] && mkdir storage
 
-if php craft install/check | grep -q 'Craft is not installed yet.'; then
+if php craft install/check | grep -q 'CraftCMS is already installed'; then
+  echo "CraftCMS is already installed"
+else
   echo "Installing and Configuring CraftCMS"
   php craft setup/app-id
   php craft setup/security-key
@@ -43,8 +46,6 @@ if php craft install/check | grep -q 'Craft is not installed yet.'; then
   # remove ./cms/craft-install.exp
   # [ -f "./setup.sh" ] && rm ./setup.sh
   # [ -f "./craft-install.exp" ] && rm ./craft-install.exp
-else
-  echo "CraftCMS is already installed"
 fi
 
 exit 0
