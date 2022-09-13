@@ -4,6 +4,7 @@
     "craftcms/mailgun": "^3.0.0",
     "craftcms/redactor": "^3.0.2",
     "dodecastudio/craft-blurhash": "2.0.4",
+    "mmikkel/retcon": "^2.5",
     "nystudio107/craft-closure": "^1.0",
     "nystudio107/craft-emptycoalesce": "^4.0.0",
     "nystudio107/craft-retour": "^4.1.2",
