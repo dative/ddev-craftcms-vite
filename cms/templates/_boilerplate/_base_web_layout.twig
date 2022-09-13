@@ -1,4 +1,3 @@
-{# prettier-ignore-start #}
 {# -- Base web layout template that all web requests inherit from -- #}
 {#
  ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -27,10 +26,11 @@
  │                                  htmlPage                                   │
  └─────────────────────────────────────────────────────────────────────────────┘
 #}
-
 {% extends "_layouts/_global_variables.twig" %}
 
+{# prettier-ignore #}
 {%- block htmlPage -%}
+	{% minify %}
 	<!DOCTYPE html>
 
 		{% block htmlTag %}
@@ -53,5 +53,5 @@
 				{% block bodyContent %}{% endblock bodyContent %}
 			</body>
 	</html>
+	{% endminify %}
 {%- endblock htmlPage -%}
-{# prettier-ignore-end #}

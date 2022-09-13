@@ -1,10 +1,5 @@
 {# prettier-ignore-start #}
-{% extends '_layouts/_naked_layout.twig' %}
-
-{# -- Any <meta> tags that should be included in the <head> #}
-{% block headMeta %}
-  {{ craft.vite.inline("@webroot/dist/assets/favicons/webapp.html") }}
-{% endblock %}
+{% extends '_boilerplate/_base_html_layout.twig' %}
 
 {# -- Any <link> tags that should be included in the <head> #}
 {% block headLinks %}
