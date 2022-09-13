@@ -26,11 +26,11 @@
 
 {# -- Page body -- #}
 {% block bodyHtml %}
-  {# {% if craft.vite.devServerRunning() %}
-    {% set svgSprite = craft.vite.inline(getenv('SITE_URL') ~ ':' ~ getenv('VITE_PRIMARY_PORT') ~ '/src/img/sprite.svg') %}
+  {% if craft.vite.devServerRunning() %}
+    {% set svgSprite = craft.vite.inline(getenv('PRIMARY_SITE_URL') ~ ':' ~ getenv('VITE_PRIMARY_PORT') ~ '/src/img/sprite.svg') %}
   {% else %}
     {% set svgSprite = craft.vite.inline('@webroot' ~ craft.vite.entry("src/img/sprite.svg")) %}
-  {% endif %} #}
+  {% endif %}
 
   {% if svgSprite %}
     {{ svgSprite|retconAttr( 'svg', { 'style' : 'visibility: hidden; z-index: -1;position: absolute;' } ) }}

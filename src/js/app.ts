@@ -7,4 +7,5 @@ if (import.meta.hot) {
 
 import 'vite/modulepreload-polyfill'
 
+import '../img/sprite.svg'
 import '../css/app.css'
