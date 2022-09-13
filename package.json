@@ -23,8 +23,12 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:installer": "bats tests"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "rimraf cms/web/dist && NODE_ENV=dev vite",
+    "build": "tsc && NODE_ENV=production vite build",
+    "build:ci": "tsc && NODE_ENV=production CRITICAL_URL=https://siteurl.com vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "lazysizes": "^5.3.2"
@@ -45,6 +49,7 @@
     "cross-fetch": "^3.1.5",
     "cssnano": "^5.1.13",
     "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "postcss": "^8.4.16",
     "postcss-import": "^14.1.0",
@@ -57,6 +62,7 @@
     "ts-loader": "^9.3.1",
     "typescript": "^4.8.3",
     "vite": "^3.1.0",
+    "vite-plugin-favicon2": "^1.1.4",
     "vite-plugin-full-reload": "^1.0.4",
     "vite-plugin-manifest-sri": "^0.1.0",
     "vite-plugin-restart": "^0.2.0"

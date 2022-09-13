@@ -1,18 +1,9 @@
+{# prettier-ignore-start #}
 {% extends '_boilerplate/_base_html_layout.twig' %}
 
 {# -- Any <meta> tags that should be included in the <head> #}
 {% block headMeta %}
-  {% if not craft.vite.devServerRunning() %}
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('/dist/' ~ currentSite.handle ~ '/apple-touch-icon.png') }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('/dist/' ~ currentSite.handle ~ '/favicon-32x32.png') }}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('/dist/' ~ currentSite.handle ~ '/favicon-16x16.png') }}" />
-    <link rel="manifest" href="{{ url('/dist/' ~ currentSite.handle ~ '/site.webmanifest') }}" />
-    <link rel="mask-icon" href="{{ url('/dist/' ~ currentSite.handle ~ '/safari-pinned-tab.svg') }}" color="#66a0cb" />
-    <link rel="shortcut icon" href="{{ url('/dist/' ~ currentSite.handle ~ '/favicon.ico') }}" />
-    <meta name="msapplication-config" content="{{ url('/dist/' ~ currentSite.handle ~ '/browserconfig.xml') }}" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="{{ url('/dist/' ~ currentSite.handle ~ '/favicon.svg') }}" type="image/svg+xml" />
-  {% endif %}
+  {{ craft.vite.inline("@webroot/dist/assets/favicons/webapp.html") }}
 {% endblock %}
 
 {# -- Any <link> tags that should be included in the <head> #}
@@ -35,11 +26,11 @@
 
 {# -- Page body -- #}
 {% block bodyHtml %}
-  {% if craft.vite.devServerRunning() %}
+  {# {% if craft.vite.devServerRunning() %}
     {% set svgSprite = craft.vite.inline(getenv('SITE_URL') ~ ':' ~ getenv('VITE_PRIMARY_PORT') ~ '/src/img/sprite.svg') %}
   {% else %}
     {% set svgSprite = craft.vite.inline('@webroot' ~ craft.vite.entry("src/img/sprite.svg")) %}
-  {% endif %}
+  {% endif %} #}
 
   {% if svgSprite %}
     {{ svgSprite|retconAttr( 'svg', { 'style' : 'visibility: hidden; z-index: -1;position: absolute;' } ) }}
@@ -69,3 +60,4 @@
   {% endif %}
 
 {% endblock %}
+{# prettier-ignore-end #}

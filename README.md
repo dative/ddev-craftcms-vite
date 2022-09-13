@@ -9,11 +9,6 @@ You can create a new repo from this one by clicking the template button in the t
 ## Components of the repository
 
 - The base setup to run CraftCMS + Vite with DDEV
-  - PHP 8.1
-  - MySQL 8.0
-  - Node 16
-  - Vite 3.1.0
-  - CraftCMS 4.2
 - Github actions setup for building an deploying the site in Forge.
 
 ## Getting started
@@ -24,3 +19,35 @@ After cloning your new repo:
 2. Clone the new repository to your local machine.
 3. Replace `<craft-vite>` in `.ddev/confi.yaml` with your local project name.
 4. Start DDEV with `ddev start`.
+5. Run `ddev install-craft` to install CraftCMS.
+
+## DDEV & Craft Setup
+
+DDEV is configured with the following settings:
+
+- PHP 8.1
+- MySQL 8.0
+- Node 16
+
+Craft is configured with the following plugins:
+
+- mailgun
+- redactor
+- blur-hash
+- empty-coalesce
+- retour
+- seomatic
+- typogrify
+- vite
+- relax
+- typedlinkfield
+- dospaces
+- navigation
+- super-table
+
+## Usage
+
+### Local development
+
+### Build / Deploy
+
