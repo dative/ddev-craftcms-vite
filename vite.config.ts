@@ -29,7 +29,12 @@ let plugins = [
     }
   }),
 
-  (ViteRestart as any).default({ restart: ['./cms/templates/**/*'] })
+  /*
+    Using undocumented "reload" prop instead "restart" for
+    faster developement. Check:
+    https://github.com/antfu/vite-plugin-restart/blob/main/src/index.ts#L25
+  */
+  (ViteRestart as any).default({ reload: ['./cms/templates/**/*'] })
 ]
 
 if (criticalUrl !== false) {
