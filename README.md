@@ -16,7 +16,7 @@ You can create a new repo from this one by clicking the template button in the t
 ## Components of the repository
 
 - The base setup to run CraftCMS + Vite with DDEV
-- Github actions setup for building an deploying the site in Forge.
+- [Github actions](https://github.com/dative/ddev-craftcms-vite/blob/main/.github/workflows/build-and-deploy.yml) for building an deploying the site in Forge.
 
 ## Requirements
 
