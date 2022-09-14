@@ -6,7 +6,7 @@
  * @Author: webrgp
  * @Date: 2022-04-28 16:07:33
  * @Last Modified by: webrgp
- * @Last Modified time: 2022-09-13 15:18:49
+ * @Last Modified time: 2022-09-13 19:58:44
  *
  */
 
@@ -29,9 +29,9 @@
  * override them.
  *
  */
-/* @import './components/webfonts.css';
+@import './components/webfonts.css';
 @import './components/global.css';
-@import './components/typography.css'; */
+@import './components/typography.css';
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

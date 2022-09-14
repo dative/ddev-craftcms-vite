@@ -1,0 +1,46 @@
+{# prettier-ignore-start #}
+{% extends '_boilerplate/_base_html_layout.twig' %}
+
+{# -- Any <link> tags that should be included in the <head> #}
+{% block headLinks %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+  {# Review this after critical css #}
+  {% if not craft.vite.devServerRunning() %}
+   <link rel="stylesheet" href="{{ craft.vite.entry('src/js/app.css') }}">
+  {% endif %}
+{% endblock %}
+
+{# -- Any CSS that should be included before </head> -- #}
+{% block headCss %}
+  {{ craft.vite.includeCriticalCssTags() }}
+{% endblock %}
+
+{% set svgSprite = null %}
+
+{# -- Page body -- #}
+{% block bodyHtml %}
+  {% if craft.vite.devServerRunning() %}
+    {% set svgSprite = craft.vite.inline(getenv('PRIMARY_SITE_URL') ~ ':' ~ getenv('VITE_PRIMARY_PORT') ~ '/src/img/sprite.svg') %}
+  {% else %}
+    {% set svgSprite = craft.vite.inline('@webroot' ~ craft.vite.entry("src/img/sprite.svg")) %}
+  {% endif %}
+
+  {% if svgSprite %}
+    {{ svgSprite|retconAttr( 'svg', { 'style' : 'visibility: hidden; z-index: -1;position: absolute;' } ) }}
+  {% endif %}
+
+  {% block pageContainer %}{% endblock %}
+{% endblock %}
+
+{# -- Any JavaScript that should be included before </body> -- #}
+{% block bodyJs %}
+  {{ craft.vite.script("src/js/app.ts", true) }}
+
+  {% if not devMode %}
+    {# Any tracking scripts not handled by SEOmatic should be entered here #}
+  {% endif %}
+
+{% endblock %}
+{# prettier-ignore-end #}

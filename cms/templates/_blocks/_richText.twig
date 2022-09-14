@@ -1,0 +1,24 @@
+{#
+
+Rich Text Block component
+
+Usage:
+
+{% include "_blocks/_richText.twig" with {
+  blk: {
+    rContent: "<p>Your Markup</p>",
+  }
+} %}
+
+#}
+{# prettier-ignore #}
+{% if
+  blk is defined
+  and blk
+  and blk.rContent is defined
+  and blk.rContent
+%}
+  <div class="blk-rich-text">
+    {{ blk.rContent|raw }}
+  </div>
+{% endif %}

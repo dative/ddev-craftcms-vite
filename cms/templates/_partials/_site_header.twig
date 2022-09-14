@@ -1,5 +1,14 @@
-{#
 <header>
-  Site Header
+  <div class="mx-auto max-w-screen-lg">
+    <div class="p-2">
+      <a href="/" class="flex gap-2 items-center">
+        {% include '_partials/_useSprite.twig' with {
+          id: 'site-logo',
+          title: 'Site Logo',
+          class: 'w-10 h-10 rounded'
+        } %}
+        <span class="font-bold">Craft Starter</span>
+      </a>
+    </div>
+  </div>
 </header>
-#}

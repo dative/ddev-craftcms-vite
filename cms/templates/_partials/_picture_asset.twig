@@ -1,0 +1,93 @@
+{#
+
+Picture Asset component (for srcset only)
+
+Usage:
+
+{% include "_partials/_picture_asset.twig" with {
+  pic: ASSET,
+  alt: STRING,
+  sizes: OBJECT | ARRAY,
+  config: OBJECT,
+  imgClass: STRING,
+  imgStyle: STRING,
+  videoUrl: STRING,
+  fallbackSrc: STRING,
+} %}
+
+#}
+{# prettier-ignore #}
+{% if (pic is defined and pic) or (fallbackSrc is defined and fallbackSrc) %}
+
+	{% set alt = alt ??? pic.alt ??? pic.title ??? '' %}
+
+	{% set isCrop = sizes is defined and sizes[0].h is defined ? true : false %}
+
+	{% set sizes = sizes|default([{
+    w: 1110,
+  }]) %}
+
+	{% set defaultClasses = [
+    'object-cover',
+    'bg-cover',
+    'w-full',
+  ] %}
+
+	{% set imgConfig = {
+    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    alt: alt ??? false,
+    class: imgClass|default('')|split(' ')|merge(defaultClasses),
+    style: imgStyle ??? false,
+  } %}
+
+	{% set picSources = null %}
+
+  {% if pic is defined and pic != null %}
+    {#
+      Calculate Aspect Ratio:
+      (original height / original width) x new width = new height
+    #}
+    {% set aspectWidth = sizes[0].w %}
+    {% set aspectHeight = sizes[0].h|default(null) %}
+    {% set aspectHeight = aspectHeight ?: (pic.height / pic.width) * aspectWidth %}
+
+    {% set sizes = sizes|map( size => size|merge({
+      ar: aspectWidth / aspectHeight,
+      q: 100,
+      m: isCrop ? 'crop' : 'fit',
+      'fp-x': pic.focalPoint.x,
+      'fp-y': pic.focalPoint.y,
+    })) %}
+
+    {% set transformedSrcset = craft.jitter.srcset(
+        pic,
+        sizes
+    )%}
+
+    {% set style = "aspect-ratio: #{ aspectWidth } / #{ aspectHeight }; background-image: url('#{ blurhash(pic) }');" %}
+
+    {% set imgConfig = imgConfig|merge({
+      srcset: transformedSrcset,
+      style: style,
+      width: aspectWidth,
+      height: aspectHeight,
+      loading: 'lazy',
+    }) %}
+
+  {% elseif fallbackSrc is defined and fallbackSrc %}
+    {% set imgConfig = imgConfig|merge({
+      src: fallbackSrc,
+      width: sizes.width|default(null),
+      height: sizes.height|default(null),
+    }) %}
+  {% endif %}
+
+  {% if imgConfig %}
+    {% set imgTag %}
+      {{ tag('img', imgConfig) }}
+    {% endset %}
+    {% include "_partials/_picture.twig" with {
+      img: imgTag
+    } %}
+  {% endif %}
+{% endif %}

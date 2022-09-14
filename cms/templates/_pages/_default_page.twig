@@ -1,0 +1,36 @@
+{% extends '_layouts/_base_page_layout.twig' %}
+
+{# prettier-ignore #}
+{% block mainContent %}
+
+  {% block pageHeader %}
+    {% include '_partials/_page_header.twig' with {
+      title: entry.title
+    } %}
+  {% endblock %}
+
+  <div class="flex flex-col gap-8">
+    {% block beforeContentBlocks %}{% endblock %}
+
+    {% if
+      entry is defined
+      and entry.contentBlocks is defined
+      and entry.contentBlocks
+    %}
+      {% include '_blocks/_content_blocks.twig' with {
+        blocks: entry.contentBlocks
+      } %}
+    {% endif %}
+
+    {% block afterContentBlocks %}{% endblock %}
+  </div>
+
+{% endblock %}
+
+{#
+  {% block subcontent %}
+    <div>
+      Add subcontent here
+    </div>
+  {% endblock %}
+#}

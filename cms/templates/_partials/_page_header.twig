@@ -1,0 +1,23 @@
+{#
+
+Page Header component
+
+Usage:
+
+{% include "_partials/_page_header.twig" with {
+  title: "Page Title",
+} %}
+
+#}
+{# prettier-ignore #}
+{% if
+  title is defined
+  and title
+%}
+<header class="my-4 [&>*]:h1">
+  {% include '_partials/_heading.twig' with {
+    text: title,
+    htag: 'h1'
+  } %}
+</header>
+{% endif %}

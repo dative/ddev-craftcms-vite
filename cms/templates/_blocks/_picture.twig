@@ -1,0 +1,29 @@
+{#
+
+Picture Block component
+
+Usage:
+
+{% include "_blocks/_picture.twig" with {
+  blk: {
+    image: ASSET,
+  }
+} %}
+
+#}
+{# prettier-ignore #}
+{% if blk is defined and blk and blk.image is defined and blk.image %}
+	{% if blk.image %}
+    {% set imgTag %}
+      {{ tag('img', {
+        src: blk.image.src,
+        class: 'w-full'
+      }) }}
+    {% endset %}
+		<div class="w-full">
+			{% include '_partials/_picture.twig' with {
+        img: imgTag,
+      } %}
+		</div>
+	{% endif %}
+{% endif %}

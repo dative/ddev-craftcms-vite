@@ -1,0 +1,124 @@
+/**
+ * components/typography.css
+ *
+ * Typography rules.
+ *
+ */
+
+@layer base {
+  .anchor,
+  .blk-rich-text a {
+  }
+
+  .h1,
+  .blk-rich-text h1 {
+    font-size: theme(fontSize.2xl);
+    line-height: theme(fontSize.2xl[1].lineHeight);
+    font-weight: theme(fontWeight.medium);
+
+    @media screen(lg) {
+      font-size: theme(fontSize.3xl);
+      line-height: theme(fontSize.3xl[1].lineHeight);
+    }
+  }
+
+  .h2,
+  .blk-rich-text h2 {
+    font-size: theme(fontSize.lg);
+    line-height: theme(fontSize.lg[1].lineHeight);
+    font-weight: theme(fontWeight.bold);
+
+    @media screen(lg) {
+      font-size: theme(fontSize.xl);
+      line-height: theme(fontSize.xl[1].lineHeight);
+    }
+  }
+
+  .h3,
+  .blk-rich-text h3 {
+    font-size: theme(fontSize.lg);
+    line-height: theme(fontSize.lg[1].lineHeight);
+    font-weight: theme(fontWeight.medium);
+
+    @media screen(lg) {
+      font-size: 32px;
+      line-height: 39px;
+    }
+  }
+
+  .h4,
+  .blk-rich-text h4 {
+    font-size: theme(fontSize.lg);
+    line-height: theme(fontSize.lg[1].lineHeight);
+    font-weight: theme(fontWeight.bold);
+  }
+
+  .h5,
+  .blk-rich-text h5 {
+    font-size: theme(fontSize.lg);
+    line-height: theme(fontSize.lg[1].lineHeight);
+    font-weight: theme(fontWeight.medium);
+  }
+
+  .p,
+  .blk-rich-text p {
+    font-size: theme(fontSize.base);
+    line-height: theme(fontSize.base[1].lineHeight);
+  }
+
+  p.lead,
+  .blk-rich-text p.lead {
+    font-size: theme(fontSize.lg);
+    line-height: theme(fontSize.lg[1].lineHeight);
+    color: theme(colors.gray.600);
+  }
+
+  .ul,
+  .blk-rich-text ul {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+
+  .ol,
+  .blk-rich-text ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+  }
+
+  .ul,
+  .blk-rich-text ul,
+  .ol,
+  .blk-rich-text ol {
+    font-size: theme(fontSize.base);
+    line-height: theme(fontSize.base[1].lineHeight);
+
+    & > li {
+      font-size: theme(fontSize.base);
+      line-height: theme(fontSize.base[1].lineHeight);
+      margin-top: 0.75rem /* 12px */;
+      margin-bottom: 0.75rem /* 12px */;
+
+      &::marker {
+        color: theme(colors.gray.500);
+      }
+    }
+  }
+}
+
+@layer components {
+  .blk-rich-text {
+    & > * {
+      margin-top: 1.5rem /* 24px */;
+      margin-bottom: 1.5rem /* 24px */;
+      color: theme(colors.gray.900);
+
+      &:first-child {
+        margin-top: 0px;
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

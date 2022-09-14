@@ -39,7 +39,7 @@ Once installed you can run `ddev yarn dev` to start the dev server.
 
 ### Craft Setup:
 
-This repository is setup with the following Craft plugins pre-installed and configured:
+The following Craft CMS plugins are used on this site:
 
 - [Mailgun](https://github.com/craftcms/mailgun)
 - [Redactor](https://github.com/craftcms/redactor)

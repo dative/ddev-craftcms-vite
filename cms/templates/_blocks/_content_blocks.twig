@@ -1,0 +1,11 @@
+{# prettier-ignore #}
+{% if blocks is defined and blocks is iterable %}
+  {% for blk in blocks %}
+    {% if blk.type is defined %}
+      {% include '_blocks/_' ~ blk.type ~ '.twig' with {
+        blk: blk,
+        index: loop.index
+      } %}
+    {% endif %}
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,18 @@
+{#
+
+Picture Block component
+
+Usage:
+
+{% include "_blocks/_picture.twig" with {
+  img: '<img />'
+} %}
+
+#}
+{% if img is defined and img %}
+  <div class="relative">
+    <picture>
+      {{ img }}
+    </picture>
+  </div>
+{% endif %}
