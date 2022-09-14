@@ -27,8 +27,7 @@
     "lint:fix": "eslint . --fix",
     "dev": "rimraf cms/web/dist && NODE_ENV=dev vite",
     "build": "tsc && NODE_ENV=production vite build",
-    "build:ci": "tsc && NODE_ENV=production CRITICAL_URL=https://siteurl.com vite build",
-    "preview": "vite preview"
+    "build:critical": "tsc && NODE_ENV=production CRITICAL_URL=https://siteurl.com vite build"
   },
   "dependencies": {
     "lazysizes": "^5.3.2"

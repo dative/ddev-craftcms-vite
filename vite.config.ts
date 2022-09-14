@@ -20,6 +20,13 @@ let plugins = [
     targets: ['defaults', 'not IE 11']
   }),
 
+  /*
+    Using undocumented "reload" prop instead "restart" for
+    faster developement. Check:
+    https://github.com/antfu/vite-plugin-restart/blob/main/src/index.ts#L25
+  */
+  (ViteRestart as any).default({ reload: ['./cms/templates/**/*'] }),
+
   ViteFaviconsPlugin({
     logo: nPath('./src/static/favicon.svg'),
     inject: false,
@@ -27,14 +34,7 @@ let plugins = [
     favicons: {
       start_url: '/'
     }
-  }),
-
-  /*
-    Using undocumented "reload" prop instead "restart" for
-    faster developement. Check:
-    https://github.com/antfu/vite-plugin-restart/blob/main/src/index.ts#L25
-  */
-  (ViteRestart as any).default({ reload: ['./cms/templates/**/*'] })
+  })
 ]
 
 if (criticalUrl !== false) {
